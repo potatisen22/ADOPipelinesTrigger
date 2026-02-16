@@ -15,6 +15,7 @@ inputs:
   
   ado-pat:
     description: 'Azure Devops Personal Access Token'
+    required: true
 
   ado-ref-name:
     description: 'The git ref name that triggered the workflow (e.g., main)'

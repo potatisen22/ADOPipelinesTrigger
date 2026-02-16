@@ -126,8 +126,8 @@ func (pipeline *Pipeline) TriggerPipeline() error {
 
 func main() {
 	pipeline, err := NewPipeline(
-		os.Getenv("INPUT_PIPELINE-PARAMETERS"),
 		os.Getenv("INPUT_PIPELINE-VARIABLES"),
+		os.Getenv("INPUT_PIPELINE-PARAMETERS"),
 		os.Getenv("INPUT_ADO-REF-NAME"),
 	)
 	if err != nil {

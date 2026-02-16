@@ -68,7 +68,6 @@ jobs:
     pipeline-parameters: '{"environment": "production", "deploy": "true"}'
 ```
 
-
 ## Azure DevOps PAT Permissions
 
 Your Personal Access Token needs Read & Execute permissions for Pipelines to trigger the pipeline successfully.
