@@ -37,7 +37,7 @@ type Pipeline struct {
 func NewPipeline(variables string, parameters string, inputRefName string) (*Pipeline, error) {
 	org := os.Getenv("INPUT_ADO-ORGANIZATION")
 	project := os.Getenv("INPUT_ADO-PROJECT")
-	pipelineID := os.Getenv("IINPUT_ADO-PIPELIN-ID")
+	pipelineID := os.Getenv("INPUT_ADO-PIPELINE-ID")
 	pat := os.Getenv("INPUT_ADO-PAT")
 
 	if org == "" || project == "" || pipelineID == "" || pat == "" {
