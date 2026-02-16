@@ -28,6 +28,10 @@ inputs:
     description: 'Azure Devops Pipeline Variables in JSON format'
     required: false
 
+branding:
+  icon: 'play-circle'
+  color: 'purple'
+
 runs: 
   using: 'docker'
   image: 'Dockerfile'
