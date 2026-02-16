@@ -1,0 +1,21 @@
+name: GitHub Action Go
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ADO-Pipelines-Trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        with:
+          ado-organization: ${{ secrets.ADO_ORGANIZATION }}
+          ado-project: ${{ secrets.ADO_PROJECT }}
+          ado-pipeline-id: ${{ secrets.ADO_PIPELINE_ID }}
+          ado-pat: ${{ secrets.ADO_PAT }}
+          ado-ref-name: main
+          pipeline-parameters: '{"parameter1": "value1" }'

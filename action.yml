@@ -1,0 +1,33 @@
+name: ADO-Pipelines-Trigger
+description: A GitHub Action to trigger Azure DevOps pipelines.
+inputs:
+  ado-organization:
+    description: 'Azure Devops Organization'
+    required: true
+  
+  ado-project:
+    description: 'Azure Devops Project'
+    required: true
+  
+  ado-pipeline-id:
+    description: 'Azure Devops Pipeline ID'
+    required: true
+  
+  ado-pat:
+    description: 'Azure Devops Personal Access Token'
+
+  ado-ref-name:
+    description: 'The git ref name that triggered the workflow (e.g., main)'
+    required: false
+
+  pipeline-parameters:
+    description: 'Azure Devops Pipeline Parameters in JSON format'
+    required: false
+  
+  pipeline-variables:
+    description: 'Azure Devops Pipeline Variables in JSON format'
+    required: false
+
+runs: 
+  using: 'docker'
+  image: 'Dockerfile'
