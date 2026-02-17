@@ -18,7 +18,7 @@ A GitHub Action to trigger Azure DevOps pipelines directly from your GitHub work
 | `ado-ref-name` | Git branch name to trigger the pipeline on | No | `main` |
 | `pipeline-parameters` | Pipeline template parameters as a JSON string | No | — |
 
-The `ado-pat` should be stored as a [GitHub Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) — never hardcode it in your workflow.
+The `ado-pat` should be stored as a [GitHub Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
 
 ## Usage
