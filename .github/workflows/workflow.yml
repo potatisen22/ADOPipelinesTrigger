@@ -7,15 +7,34 @@ on:
     branches: [main]
 
 jobs:
-  ADO-Pipelines-Trigger:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
         with:
-          ado-organization: ${{ secrets.ADO_ORGANIZATION }}
-          ado-project: ${{ secrets.ADO_PROJECT }}
-          ado-pipeline-id: ${{ secrets.ADO_PIPELINE_ID }}
-          ado-pat: ${{ secrets.ADO_PAT }}
-          ado-ref-name: main
-          pipeline-parameters: '{"parameter1": "value1" }'
+          go-version: '1.26'
+      - name: Run tests
+        run: go test -v ./src/...
+  
+  validate-image:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t ado-pipelines-trigger .
+
+#jobs:
+#  ADO-Pipelines-Trigger:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: ./
+#        with:
+#          ado-organization: ${{ secrets.ADO_ORGANIZATION }}
+#          ado-project: ${{ secrets.ADO_PROJECT }}
+#          ado-pipeline-id: ${{ secrets.ADO_PIPELINE_ID }}
+#          ado-pat: ${{ secrets.ADO_PAT }}
+#          ado-ref-name: main
+#          pipeline-parameters: '{"parameter1": "value1" }'
